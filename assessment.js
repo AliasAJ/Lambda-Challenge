@@ -8,6 +8,8 @@ After writing your function uncomment the matching function reference at the bot
 
 function helloWorld() {
 
+    return 'Hello World!';
+
 }
 
 /*
@@ -23,7 +25,22 @@ function helloWorld() {
              lambdaSchool(8); // returns 8
 */
 
-function lambdaSchool() {
+function lambdaSchool(num) {
+
+    if ( num % 3 === 0){
+    return 'Lambda';
+    }
+
+     if ( num % 5 === 0){
+    return 'School';
+    }
+
+     if (num % 3 === 0 && num % 5 === 0){
+    return 'Lambda School';
+    }
+
+     if (num % 3 !== 0 || num % 5 !== 0){
+    return num;
 
 }
 
@@ -38,7 +55,11 @@ function lambdaSchool() {
              longestString(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
 */
 
-function longestString() {
+function longestString(strs) {
+
+    let longest = strs.sort(function (a,b) { return b.length - a.length; })[0];
+
+     return longest;
 
 }
 
@@ -63,13 +84,25 @@ function longestString() {
              computeUserAverageAge(users); // returns 62 (This number is rounded up from 61.6666)
 */
 
-function computeUserAverageAge() {
+function computeUserAverageAge(users) {
+
+    let age = 0;
+    let aver;
+
+    for (let i = 0; i < users.length; i++) {
+    age += users[i].age;
+
+     }
+
+    aver = age / users.length;
+    return Math.round(aver);
 
 }
+
 
 module.exports = {
  helloWorld,
  lambdaSchool,
  longestString,
- computeUserAverageAge
+ computeUserAverageAge,
 };
